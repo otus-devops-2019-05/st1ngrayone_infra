@@ -7,4 +7,4 @@ ssh -t -A 35.210.239.172 ssh root@10.132.0.3
 
 # Подключение через pritunl
 bastion_IP = 35.210.239.172
-someinternalhost = 10.132.0.3
+someinternalhost_IP = 10.132.0.3
