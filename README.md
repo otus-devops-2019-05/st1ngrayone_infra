@@ -1,2 +1,10 @@
-# st1ngrayone_infra
-st1ngrayone Infra repository
+# Самостоятельное задание 1
+Вариант подключения в одну команду к someinternalhost используя команду:
+ssh -t -A 35.210.239.172 ssh root@10.132.0.3
+# Доп. задание 
+Для подключения по алиасу можно добавить запись /etc/hosts на сервере bastion
+10.132.0.3 someinternalhost
+
+# Подключение через pritunl
+bastion_IP = 35.210.239.172
+someinternalhost = 10.132.0.3
