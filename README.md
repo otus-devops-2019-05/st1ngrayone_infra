@@ -9,7 +9,7 @@ ssh -t -A 35.210.239.172 ssh root@10.132.0.3
 bastion_IP = 35.210.239.172
 someinternalhost_IP = 10.132.0.3
 
-#ДЗ #4 Cloud testapp
+# ДЗ #4 Cloud testapp
 
 ## test app 
 testapp_IP = 35.228.202.63
