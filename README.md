@@ -33,3 +33,9 @@ startup-script.sh содержит команды установки ruby, mongo
 ## Команда для удаления правила firewall 
 
 `gcloud compute firewall-rules delete default-puma-server`
+
+#ДЗ №5 Packer
+
+1. Параметризирован шаблон используя 2 обязательные и 1 необязательную переменную
+2. Создан файл variables.json и variables.json.example
+3. Исследованы дополнительные опции, добавлены в шаблон
