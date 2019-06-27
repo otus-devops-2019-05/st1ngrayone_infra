@@ -1,5 +1,5 @@
 { 
-	"variable1": "value1",
-	"variable2": "value2"
+	"project_id": "value1",
+	"source_image_family": "value2"
 }
 
