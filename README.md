@@ -33,3 +33,12 @@ startup-script.sh содержит команды установки ruby, mongo
 ## Команда для удаления правила firewall 
 
 `gcloud compute firewall-rules delete default-puma-server`
+
+# Packer
+
+Ubuntu16.json - packer-base шаблон для создания образа ВМ в gcp. 
+Для создания образа необходимо создать файл с переменными variables.json и передать команде
+`Packer build -var-file=variables.json ubuntu16.json`
+variable.json.examble - пример создания файла с переменными. 
+
+
