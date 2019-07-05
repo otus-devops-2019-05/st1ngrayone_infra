@@ -13,4 +13,8 @@ variable public_key_path {
 variable disk_image {
 	description = "Disk image"
 }
+variable private_key_path {
+	# Описание переменной
+	description = "ssh key for provisioners"
+}
 

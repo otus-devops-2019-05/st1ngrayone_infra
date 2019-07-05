@@ -7,9 +7,8 @@ provider "google" {
 	# Версия провайдера
 	version = "2.0.0"
 	# ID проекта
-	project = "central-cinema-244208"
-
-	region = "europe-west-1"
+	project = "${var.project}"
+	region = "${var.region}"
 }
 
 resource "google_compute_instance" "app" {
@@ -20,7 +19,7 @@ resource "google_compute_instance" "app" {
 	# определение загрузочного диска
 	boot_disk {
 		initialize_params {
-		image = "reddit-base"
+		image = "${var.disk_image}"
 		}
 	}
 	# определение сетевого интерфейса
@@ -35,7 +34,7 @@ resource "google_compute_instance" "app" {
 		user = "root"
 		agent = false
 		# путь до приватного ключа
-		private_key = "${file("~/.ssh/id_rsa")}"
+		private_key = "${file(var.private_key_path)}"
 	}
 
 	provisioner "file" {
@@ -47,7 +46,7 @@ resource "google_compute_instance" "app" {
 	}
 	metadata {
 		# путь до публичного ключа
-		ssh-keys = "root:${file("~/.ssh/id_rsa.pub")}"
+		ssh-keys = "root:${file(var.public_key_path)}"
 	}
 
 }
