@@ -14,7 +14,7 @@ provider "google" {
 
 resource "google_compute_project_metadata" "default" {
   metadata = {
-    ssh-keys = "root:${file(var.public_key_path)}\nappuser1:${file(var.public_key_path)}"
+    ssh-keys = "appuser1:${file(var.public_key_path)}\nappuser2:${file(var.public_key_path)}"
   }
 }
 
