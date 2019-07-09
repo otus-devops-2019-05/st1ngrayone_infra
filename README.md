@@ -9,7 +9,7 @@ ssh -t -A 35.210.239.172 ssh root@10.132.0.3
 bastion_IP = 35.210.239.172
 someinternalhost_IP = 10.132.0.3
 
-#ДЗ #4 Cloud testapp
+# Cloud testapp HW # 4
 
 ## test app 
 testapp_IP = 35.228.202.63
@@ -34,11 +34,23 @@ startup-script.sh содержит команды установки ruby, mongo
 
 `gcloud compute firewall-rules delete default-puma-server`
 
-# Packer
+# Packer HW # 5
 
 Ubuntu16.json - packer-base шаблон для создания образа ВМ в gcp. 
 Для создания образа необходимо создать файл с переменными variables.json и передать команде
 `Packer build -var-file=variables.json ubuntu16.json`
 variable.json.examble - пример создания файла с переменными. 
+
+# Terraform project HW # 6
+
+ - Добавлены input переменные в проект. 
+ - Добавлен файл terraform.tfvars.example в котором указаны переменные для образца
+
+## Задание со *
+
+ - Описано в коде main.tf добавление ключей для пользователя appuser1
+ - Описано добавление в коде для нескольких пользователей в метаданные проекта
+ - При добавлении ключа через веб интерфейс, после применения terraform apply ключ перезаписывается тем, что указан в terraform
+
 
 
