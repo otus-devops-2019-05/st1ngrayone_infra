@@ -1,6 +1,6 @@
 terraform {
   # Версия terraform
-  required_version = "0.11.7"
+  required_version = "0.11.11"
 }
 
 provider "google" {
@@ -16,6 +16,10 @@ resource "google_compute_project_metadata" "default" {
   metadata = {
     ssh-keys = "appuser1:${file(var.public_key_path)}\nappuser2:${file(var.public_key_path)}"
   }
+}
+
+resource "google_compute_address" "app_ip" {
+	name = "reddit-app-ip"
 }
 
 resource "google_compute_instance" "app" {
@@ -82,3 +86,15 @@ resource "google_compute_firewall" "firewall_puma" {
   # Правило применимо для инстансов с перечисленными тэгами
   target_tags = ["reddit-app"]
 }
+
+resource "google_compute_firewall" "firewall_ssh" {
+
+		name = "default-allow-ssh"
+		network = "default"
+		allow {
+			protocol = "tcp"
+			ports = ["22"]
+		}
+	source_ranges = ["0.0.0.0/0"]
+}
+
