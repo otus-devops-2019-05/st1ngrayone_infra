@@ -42,7 +42,7 @@ resource "google_compute_instance" "app" {
 
   connection {
     type  = "ssh"
-    user  = "root"
+    user  = "appuser"
     agent = false
 
     # путь до приватного ключа
