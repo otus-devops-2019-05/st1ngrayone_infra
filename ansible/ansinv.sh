@@ -2,6 +2,6 @@
 
 if [[ $1 = "--list" ]] 
 then
-	/bin/cat ./inventory.json
+	/bin/cat ./inventory1.json
 fi
 
