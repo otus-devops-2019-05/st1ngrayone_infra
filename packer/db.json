@@ -24,7 +24,8 @@
 	"provisioners": [
 		{
 		"type": "ansible",
-		"playbool_file": "ansible/packer_db.yml"
+		"playbook_file": "ansible/packer_db.yml",
+		"user": "appuser"
 		}
 	]
 }
