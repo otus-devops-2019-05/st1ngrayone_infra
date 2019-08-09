@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  author: Anton Cherenkov
+  description: Ansible role for install puma service
+  company: Otus-Devops
+  license: GPL-2.0-or-later
+  min_ansible_version: 2.4.0
+  dependencies: []
+
