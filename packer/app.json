@@ -1,0 +1,35 @@
+{
+	"variables": {
+		"project_id": "",
+		"source_image_family": "",
+		"machine_type": "g1-small"
+  		},
+	"builders": [
+		{
+		"type": "googlecompute",
+		"project_id": "{{user `project_id`}}",
+		"image_name": "reddit-base-{{timestamp}}",
+		"image_family": "reddit-app-base",
+		"source_image_family": "{{user `source_image_family`}}",
+		"zone": "europe-west1-b",
+		"ssh_username": "appuser",
+		"machine_type": "{{user `machine_type`}}",
+		"image_description": "packer reddit app",
+		"disk_size": "10",
+		"disk_type": "pd-standard",
+		"network": "default",
+		"metadata": {
+			"block-project-ssh-keys": "false"
+		},
+		"tags": [ "puma-server" ] 
+		}
+	],
+	"provisioners": [
+		{
+		"type": "ansible",
+		"playbook_file": "ansible/playbooks/packer_app.yml",
+		"user": "appuser"
+		}
+	]
+}
+

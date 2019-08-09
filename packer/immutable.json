@@ -1,0 +1,40 @@
+{
+	"variables": {
+		"project_id": "",
+		"source_image_family": "",
+		"machine_type": "f1-small"
+  		},
+	"builders": [
+		{
+		"type": "googlecompute",
+		"project_id": "{{user `project_id`}}",
+		"image_name": "reddit-base-{{timestamp}}",
+		"image_family": "reddit-full",
+		"source_image_family": "{{user `source_image_family`}}",
+		"zone": "europe-west1-b",
+		"ssh_username": "appuser",
+		"machine_type": "{{user `machine_type`}}",
+		"image_description": "packer reddit app",
+		"disk_size": "10",
+		"disk_type": "pd-standart",
+		"network": "default",
+		"tags": [ "puma-server" ] 
+		}
+	],
+	"provisioners": [
+		{
+		"type": "shell",
+		"script": "scripts/install_ruby.sh",
+		"execute_command": "sudo {{.Path}}"
+		},
+		{
+		"type": "shell",
+		"script": "scripts/install_mongodb.sh",
+		"execute_command": "sudo {{.Path}}"
+		},
+		{
+		""
+		}
+	]
+}
+

@@ -1,0 +1,16 @@
+---
+- name: Install Ruby && Bundler
+  hosts: all
+  become: yes
+  tasks:
+  - name: Apt cache update
+    apt:
+      update_cache: true
+  # Установим в цикле все зависимости
+  - name: Install ruby and rubygems and required packages
+    apt: "name={{ item }} state=present"
+    with_items:
+      - ruby-full
+      - ruby-bundler
+      - build-essential
+
