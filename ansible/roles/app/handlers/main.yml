@@ -1,4 +1,7 @@
 ---
 # handlers file for app
 - name: reload puma
-  systemd: name=puma state=reloaded
+  systemd: name=puma.service state=reloaded
+
+- name: restart puma
+  systemd: name=puma.service state=restarted
